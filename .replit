@@ -1,0 +1,7 @@
+run = "npm start"
+entrypoint = "server/index.js"
+
+[deployment]
+build = ["sh", "-c", "npm run build"]
+run = ["sh", "-c", "npm start"]
+deploymentTarget = "autoscale"

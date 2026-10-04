@@ -13,7 +13,7 @@
 
 ## 🔗 Quick Links
 
-- **Live Application:** `https://relay-room-chat.onrender.com` *(Or your Render deployment link)*
+- **Live Application:** `https://<your-live-deployment-url>` *(e.g., on Koyeb / Glitch / Replit)*
 - **GitHub Repository:** `https://github.com/Farhan-176/Real-Time-Chat-Application`
 - **Project Demonstration Video (3–5 min):** `https://youtu.be/<your-video-id>` *(or Loom / Google Drive link)*
 - **LinkedIn Post:** `https://www.linkedin.com/posts/<your-post-id>`
@@ -216,7 +216,7 @@ Visit `http://localhost:5173` in your browser.
 
 ## 🌐 Production Deployment
 
-The project is preconfigured for zero-friction cloud deployment on **Render**, **Railway**, or any Node-capable platform.
+The project is preconfigured for zero-friction cloud deployment on WebSocket-supported free platforms like **Koyeb**, **Glitch**, **Replit**, or **Railway**.
 
 ### Build and Run Locally in Production Mode:
 ```bash
@@ -224,15 +224,29 @@ npm run build
 npm start
 ```
 
-### Deploying to Render:
-1. Push your repository to GitHub.
-2. In Render, select **New Web Service** and link your repository.
-3. Configure the service settings:
-   - **Environment:** `Node`
+### Option 1: Koyeb (Recommended — 100% Free, No Credit Card Required)
+1. Sign up for free at [koyeb.com](https://www.koyeb.com) using your GitHub account.
+2. Click **Create Service** and select **GitHub**.
+3. Choose `Farhan-176/Real-Time-Chat-Application`.
+4. Configure service parameters:
+   - **Builder:** `Node.js` (or Buildpack)
    - **Build Command:** `npm install && npm run build`
-   - **Start Command:** `npm start`
-   - **Environment Variable:** `JWT_SECRET` = `(generate a random 32-character secret)`
-4. Render natively provides HTTP/WebSocket proxying with SSL (`wss://`), allowing uninterrupted real-time streaming without additional sticky session setup.
+   - **Run Command:** `npm start`
+   - **Port:** `3001`
+   - **Environment Variable:** `JWT_SECRET` = `relay-room-production-jwt-secret-key-1234`
+5. Click **Deploy**. Koyeb natively supports persistent WebSockets over HTTPS/WSS with zero configuration.
+
+### Option 2: Glitch (Instant 1-Click Free Hosting)
+1. Go to [glitch.com](https://glitch.com) and log in with GitHub.
+2. Click **New Project** → **Import from GitHub**.
+3. Paste: `https://github.com/Farhan-176/Real-Time-Chat-Application.git`.
+4. Glitch automatically installs dependencies and starts the server with an instant live `https://<project-name>.glitch.me` URL with full WebSocket support.
+
+### Option 3: Replit (Instant Free Public URL)
+1. Go to [replit.com](https://replit.com) → **Create Repl** → **Import from GitHub**.
+2. Select your repository `Farhan-176/Real-Time-Chat-Application`.
+3. In the shell run `npm install && npm run build && npm start`.
+4. Replit opens the webview with a public `https://<project-name>.<username>.replit.app` URL.
 
 ---
 
@@ -244,7 +258,7 @@ npm start
 | **Data Real-Time State Sync** | 20% | Verified | `src/App.tsx` (Instant append, typing indicator, online/offline status) |
 | **Security & Socket Handshake Authentication** | 20% | Verified | `server/index.js` (`io.use` token guard, `userSocketsMap`, `socketUserMap`) |
 | **Chat History Persistence** | 15% | Verified | `server/data/messages.json` + `server/schema.sql` (Sender, receiver, payload, timestamp) |
-| **Code Standards & Deployment** | 10% | Verified | TypeScript type safety, ESLint-compliant structure, `render.yaml` configuration |
+| **Code Standards & Deployment** | 10% | Verified | TypeScript type safety, unified Express + Vite production build pipeline |
 
 ---
 

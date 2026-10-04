@@ -37,21 +37,32 @@ git push -u origin main
 
 ---
 
-## 🚀 Step 2: Deploy to Production (Render Free Tier)
+## 🚀 Step 2: Deploy to Production (100% Free Alternatives, No Credit Card Required)
 
-1. Go to [https://dashboard.render.com](https://dashboard.render.com) and click **New + > Web Service**.
-2. Select **Build and deploy from a Git repository** and pick your newly created GitHub repository.
-3. Configure the settings:
-   - **Name:** `relay-room-chat` (or any unique name)
-   - **Runtime:** `Node`
+Since Render no longer supports a free tier without card verification, use any of these completely free, WebSocket-ready platforms:
+
+### Option A: Koyeb (Recommended — Fastest & Professional)
+1. Go to [https://www.koyeb.com](https://www.koyeb.com) and sign up with GitHub (No credit card needed).
+2. Click **Create Service** and select **GitHub**.
+3. Select your repository: `Farhan-176/Real-Time-Chat-Application`.
+4. Settings:
    - **Build Command:** `npm install && npm run build`
-   - **Start Command:** `npm start`
-   - **Instance Type:** `Free`
-4. Add an Environment Variable:
-   - `JWT_SECRET` = `(generate any 32-character random string, e.g. e4d7b29a1f8c4e098a5e3f1b2c4d6e8a)`
-5. Click **Deploy Web Service**.
-6. Once deployed, test your live URL in the browser and copy it:
-   - Example: `https://relay-room-chat.onrender.com`
+   - **Run Command:** `npm start`
+   - **Port:** `3001`
+   - **Environment Variable:** `JWT_SECRET` = `(generate any 32-character random string)`
+5. Click **Deploy**. Koyeb gives you an instant HTTPS/WSS URL: `https://<your-app-name>.koyeb.app`.
+
+### Option B: Glitch (1-Click Instant Import)
+1. Go to [https://glitch.com](https://glitch.com) and log in with GitHub.
+2. Click **New Project** → **Import from GitHub**.
+3. Paste: `https://github.com/Farhan-176/Real-Time-Chat-Application.git`.
+4. Glitch deploys your app instantly with a public `https://<project-name>.glitch.me` URL.
+
+### Option C: Replit (Instant Free Run)
+1. Go to [https://replit.com](https://replit.com) → **Create Repl** → **Import from GitHub**.
+2. Select `Farhan-176/Real-Time-Chat-Application`.
+3. In the shell run `npm install && npm run build && npm start`.
+4. Copy your public webview URL (`https://<repl-name>.<username>.replit.app`).
 
 ---
 
